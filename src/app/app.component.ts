@@ -1,13 +1,33 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'timer';
+  minutes: number = 0;
+  seconds: number = 0;
+  interval: any;
+
+  startTimer() {
+    this.interval = setInterval(() => {
+      if (this.seconds < 59) {
+        this.seconds++;
+      } else {
+        this.seconds = 0;
+        this.minutes++;
+      }
+    }, 1000);
+  }
+
+  pauseTimer() {
+    clearInterval(this.interval);
+  }
+
+  resetTimer() {
+    clearInterval(this.interval);
+    this.minutes = 0;
+    this.seconds = 0;
+  }
 }
