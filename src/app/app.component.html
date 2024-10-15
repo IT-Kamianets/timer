@@ -1,10 +1,12 @@
 <main class="main">
-  <div class="timer">
-    <h1>{{ minutes }}:{{ seconds | number: '2.0-0' }}</h1>
-    <div class="controls">
-      <button (click)="startTimer()">Start</button>
-      <button (click)="pauseTimer()">Pause</button>
-      <button (click)="resetTimer()">Reset</button>
+  <div class="container text-center">
+    <div class="timer">
+      <h1>{{ minutes }}:{{ seconds | number: '2.0-0' }}</h1>
+      <div class="controls mt-3">
+        <button class="btn btn-primary" (click)="startTimer()">Start</button>
+        <button class="btn btn-warning" (click)="pauseTimer()">Pause</button>
+        <button class="btn btn-danger" (click)="resetTimer()">Reset</button>
+      </div>
     </div>
   </div>
 </main>
