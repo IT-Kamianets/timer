@@ -1,22 +1,21 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; // Імпортуємо FormsModule
+import { AppComponent } from './app.component';
 import { TimerComponent } from './timer/timer.component';
 import { StopwatchComponent } from './stopwatch/stopwatch.component';
 
 @NgModule({
   declarations: [
-    AppComponent // Реєстрація вашого компонента
+    AppComponent,
+    TimerComponent, // Реєстрація компонента таймера
+    StopwatchComponent // Реєстрація компонента секундоміра
   ],
   imports: [
-    TimerComponent,
-    StopwatchComponent,
     BrowserModule,
-    CommonModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+    FormsModule // Додаємо FormsModule тут
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
