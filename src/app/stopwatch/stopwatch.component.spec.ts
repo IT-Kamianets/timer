@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StopwatchComponent } from './stopwatch.component';
+import { CommonModule } from '@angular/common'; // Імпортуємо CommonModule для використання стандартних директив Angular
 
 describe('StopwatchComponent', () => {
   let component: StopwatchComponent;
@@ -8,7 +8,7 @@ describe('StopwatchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StopwatchComponent]
+      imports: [CommonModule, StopwatchComponent] // Додаємо CommonModule
     })
     .compileComponents();
 
