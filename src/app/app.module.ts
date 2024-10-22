@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common'; // Потрібно для використання пайпів, таких як 'number'
 
 import { AppComponent } from './app.component';
+import { TimerComponent } from './timer/timer.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
@@ -10,6 +11,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AppComponent // Реєстрація вашого компонента
   ],
   imports: [
+    TimerComponent,
     BrowserModule,
     CommonModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
