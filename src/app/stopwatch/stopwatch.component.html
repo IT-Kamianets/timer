@@ -20,13 +20,14 @@
         .timer h1 {
             font-size: 4em;
             margin-bottom: 20px;
+            color: #3c3cfc;
         }
-        .controls button {
+        button {
             font-size: 1.2em;
             padding: 10px 20px;
             margin: 5px;
-            border: none;
             cursor: pointer;
+            border: none;
             border-radius: 5px;
         }
         .btn-primary {
@@ -46,56 +47,43 @@
 <body>
 
 <main class="main">
-  <div class="container text-center">
+  <div class="container">
     <div class="timer">
       <h1 id="display">00:00</h1>
-      <div class="controls mt-3">
-        <button class="btn btn-primary" onclick="startTimer()">Start</button>
-        <button class="btn btn-warning" onclick="pauseTimer()">Pause</button>
-        <button class="btn btn-danger" onclick="resetTimer()">Reset</button>
+      <div>
+        <button class="btn-primary" onclick="startTimer()">Start</button>
+        <button class="btn-warning" onclick="pauseTimer()">Pause</button>
+        <button class="btn-danger" onclick="resetTimer()">Reset</button>
       </div>
     </div>
   </div>
 </main>
 
 <script>
-  let minutes = 0;
-  let seconds = 0;
-  let timerInterval;
+  let time = 0, interval;
 
   function updateDisplay() {
-    const display = document.getElementById("display");
-    display.innerHTML = 
-      minutes.toString().padStart(2, '0') + ":" + 
-      seconds.toString().padStart(2, '0');
+    let minutes = Math.floor(time / 60).toString().padStart(2, '0');
+    let seconds = (time % 60).toString().padStart(2, '0');
+    document.getElementById('display').textContent = `${minutes}:${seconds}`;
   }
 
   function startTimer() {
-    if (timerInterval) return;  // Запобігає подвійним клікам
-    timerInterval = setInterval(() => {
-      seconds++;
-      if (seconds >= 60) {
-        seconds = 0;
-        minutes++;
-      }
-      updateDisplay();
-    }, 1000);
+    if (!interval) interval = setInterval(() => { time++; updateDisplay(); }, 1000);
   }
 
   function pauseTimer() {
-    clearInterval(timerInterval);
-    timerInterval = null;
+    clearInterval(interval);
+    interval = null;
   }
 
   function resetTimer() {
-    clearInterval(timerInterval);
-    timerInterval = null;
-    minutes = 0;
-    seconds = 0;
+    pauseTimer();
+    time = 0;
     updateDisplay();
   }
 
-  updateDisplay(); // Ініціалізація дисплея
+  updateDisplay();
 </script>
 
 </body>
