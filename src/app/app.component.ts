@@ -13,6 +13,7 @@ export class TimerComponent {
   time: number = 0;
   interval: any;
   display: string = '00:00:00';
+  backgroundClass: string = 'bg1'; // Додано клас для фону
 
   updateDisplay() {
     const h = Math.floor(this.time / 3600000).toString().padStart(2, '0');
@@ -46,6 +47,10 @@ export class TimerComponent {
     this.seconds = 0;
     this.time = 0;
     this.updateDisplay();
+  }
+
+  changeBackground(bg: string) {
+    this.backgroundClass = bg; // Змінюємо клас фону
   }
 
   ngOnInit() {
