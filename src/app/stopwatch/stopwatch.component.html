@@ -1,90 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stopwatch</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f8f9fa;
-        }
-        .container {
-            text-align: center;
-        }
-        .timer h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            color: #3c3cfc;
-        }
-        button {
-            font-size: 1.2em;
-            padding: 10px 20px;
-            margin: 5px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            color: white;
-        }
-        .btn-warning {
-            background-color: #ffc107;
-            color: white;
-        }
-        .btn-danger {
-            background-color: #dc3545;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-
-<main class="main">
-  <div class="container">
-    <div class="timer">
-      <h1 id="display">00:00</h1>
-      <div>
-        <button class="btn-primary" onclick="startTimer()">Start</button>
-        <button class="btn-warning" onclick="pauseTimer()">Pause</button>
-        <button class="btn-danger" onclick="resetTimer()">Reset</button>
-      </div>
+<div class="container">
+  <div class="timer">
+    <h1>{{ display }}</h1>
+    <div>
+      <button class="btn-primary" (click)="startTimer()">Start</button>
+      <button class="btn-warning" (click)="pauseTimer()">Pause</button>
+      <button class="btn-danger" (click)="resetTimer()">Reset</button>
     </div>
   </div>
-</main>
-
-<script>
-  let time = 0, interval;
-
-  function updateDisplay() {
-    let minutes = Math.floor(time / 60).toString().padStart(2, '0');
-    let seconds = (time % 60).toString().padStart(2, '0');
-    document.getElementById('display').textContent = `${minutes}:${seconds}`;
-  }
-
-  function startTimer() {
-    if (!interval) interval = setInterval(() => { time++; updateDisplay(); }, 1000);
-  }
-
-  function pauseTimer() {
-    clearInterval(interval);
-    interval = null;
-  }
-
-  function resetTimer() {
-    pauseTimer();
-    time = 0;
-    updateDisplay();
-  }
-
-  updateDisplay();
-</script>
-
-</body>
-</html>
+</div>
