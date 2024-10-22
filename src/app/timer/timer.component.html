@@ -1,12 +1,20 @@
-<main class="main">
-  <div class="container text-center">
-    <div class="timer">
-      <h1>{{ minutes }}:{{ seconds | number: '2.0-0' }}</h1>
-      <div class="controls mt-3">
-        <button class="btn btn-primary" (click)="startTimer()">Start</button>
-        <button class="btn btn-warning" (click)="pauseTimer()">Pause</button>
-        <button class="btn btn-danger" (click)="resetTimer()">Reset</button>
-      </div>
+<div class="container" [ngClass]="backgroundClass"> <!-- Додано ngClass -->
+  <div class="timer">
+    <h1>{{ display }}</h1>
+    <div>
+      <input type="number" [(ngModel)]="hours" placeholder="Hours" min="0" />
+      <input type="number" [(ngModel)]="minutes" placeholder="Minutes" min="0" />
+      <input type="number" [(ngModel)]="seconds" placeholder="Seconds" min="0" />
+    </div>
+    <div>
+      <button class="btn-primary" (click)="startTimer()">Start</button>
+      <button class="btn-warning" (click)="pauseTimer()">Pause</button>
+      <button class="btn-danger" (click)="resetTimer()">Reset</button>
+    </div>
+    <div>
+      <button (click)="changeBackground('bg1')">Background 1</button>
+      <button (click)="changeBackground('bg2')">Background 2</button>
+      <button (click)="changeBackground('bg3')">Background 3</button>
     </div>
   </div>
-</main>
+</div>
