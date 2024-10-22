@@ -5,25 +5,26 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './stopwatch.component.html',
-  styleUrls: ['./stopwatch.component.css'] // Виправлено на styleUrls
+  styleUrls: ['./stopwatch.component.css']
 })
 export class StopwatchComponent {
-  time: number = 0;
+  time: number = 0; // Весь час у мілісекундах
   interval: any;
-  display: string = '00:00';
+  display: string = '00:00:00'; // Формат для відображення мілісекунд
 
   updateDisplay() {
-    let minutes = Math.floor(this.time / 60).toString().padStart(2, '0');
-    let seconds = (this.time % 60).toString().padStart(2, '0');
-    this.display = `${minutes}:${seconds}`;
+    const minutes = Math.floor(this.time / 60000).toString().padStart(2, '0'); // Перетворення на хвилини
+    const seconds = Math.floor((this.time % 60000) / 1000).toString().padStart(2, '0'); // Перетворення на секунди
+    const milliseconds = Math.floor((this.time % 1000) / 10).toString().padStart(2, '0'); // Перетворення на мілісекунди
+    this.display = `${minutes}:${seconds}:${milliseconds}`; // Форматування для відображення
   }
 
   startTimer() {
     if (!this.interval) {
       this.interval = setInterval(() => {
-        this.time++;
+        this.time += 10; // Збільшуємо на 10 мілісекунд
         this.updateDisplay();
-      }, 1000);
+      }, 10); // Оновлення кожні 10 мілісекунд
     }
   }
 
