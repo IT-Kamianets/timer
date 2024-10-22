@@ -5,16 +5,19 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f8f9fa;
 }
+
 .container {
     text-align: center;
+    padding: 20px; /* Додано відступи для візуального відступу */
 }
+
 .timer h1 {
     font-size: 4em;
     margin-bottom: 20px;
-    color: #3c3cfc;
+    color: #3c3cfc; /* Колір заголовка таймера */
 }
+
 button {
     font-size: 1.2em;
     padding: 10px 20px;
@@ -23,15 +26,30 @@ button {
     border: none;
     border-radius: 5px;
 }
+
 .btn-primary {
-    background-color: #007bff;
+    background-color: #007bff; /* Синя кнопка */
     color: white;
 }
+
 .btn-warning {
-    background-color: #ffc107;
+    background-color: #ffc107; /* Жовта кнопка */
     color: white;
 }
+
 .btn-danger {
-    background-color: #dc3545;
+    background-color: #dc3545; /* Червона кнопка */
     color: white;
+}
+
+.bg1 {
+    background-color: #f8f9fa; /* Світлий фон */
+}
+
+.bg2 {
+    background-color: #e2e3e5; /* Сірий фон */
+}
+
+.bg3 {
+    background-color: #d4edda; /* Зелений фон */
 }
