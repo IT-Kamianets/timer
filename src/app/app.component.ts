@@ -57,3 +57,4 @@ export class TimerComponent {
     this.updateDisplay();
   }
 }
+
