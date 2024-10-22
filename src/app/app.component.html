@@ -1,5 +1,15 @@
-<app-timer *ngIf="type === 'timer'"></app-timer>
-<app-stopwatch *ngIf="type === 'stopwatch'"></app-stopwatch>
-
-<button (click)="type = 'timer'">Timer</button>
-<button (click)="type = 'stopwatch'">Stopwatch</button>
+<div class="container">
+  <div class="timer">
+    <h1>{{ display }}</h1>
+    <div>
+      <input type="number" [(ngModel)]="hours" placeholder="Hours" min="0" />
+      <input type="number" [(ngModel)]="minutes" placeholder="Minutes" min="0" />
+      <input type="number" [(ngModel)]="seconds" placeholder="Seconds" min="0" />
+    </div>
+    <div>
+      <button class="btn-primary" (click)="startTimer()">Start</button>
+      <button class="btn-warning" (click)="pauseTimer()">Pause</button>
+      <button class="btn-danger" (click)="resetTimer()">Reset</button>
+    </div>
+  </div>
+</div>
