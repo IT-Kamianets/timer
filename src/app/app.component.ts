@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'] // Додай стиль, якщо потрібно
 })
 export class AppComponent {
-  
+  type: 'timer' | 'stopwatch' = 'timer';
 }

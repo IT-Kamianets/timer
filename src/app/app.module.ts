@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common'; // Потрібно для ви�
 import { AppComponent } from './app.component';
 import { TimerComponent } from './timer/timer.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { StopwatchComponent } from './stopwatch/stopwatch.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   ],
   imports: [
     TimerComponent,
+    StopwatchComponent,
     BrowserModule,
     CommonModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
