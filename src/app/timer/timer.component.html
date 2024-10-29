@@ -1,4 +1,4 @@
-<div class="container" [ngClass]="backgroundClass"> <!-- Додано ngClass -->
+<div class="container">
   <div class="timer">
     <h1>{{ display }}</h1>
     <div>
@@ -10,11 +10,6 @@
       <button class="btn-primary" (click)="startTimer()">Start</button>
       <button class="btn-warning" (click)="pauseTimer()">Pause</button>
       <button class="btn-danger" (click)="resetTimer()">Reset</button>
-    </div>
-    <div>
-      <button (click)="changeBackground('bg1')">Background 1</button>
-      <button (click)="changeBackground('bg2')">Background 2</button>
-      <button (click)="changeBackground('bg3')">Background 3</button>
     </div>
   </div>
 </div>
