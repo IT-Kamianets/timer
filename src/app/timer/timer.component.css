@@ -5,7 +5,10 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f8f9fa;.bg1 {
+    background-color: #f8f9fa;
+}
+
+.bg1 {
     background-color: #f8f9fa; /* Світлий фон */
 }
 
@@ -47,19 +50,6 @@ button {
     color: white;
 }
 
-.btn-danger {
-    background-color: #dc3545;
-    color: white;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    color: white;
-}
-.btn-warning {
-    background-color: #ffc107;
-    color: white;
-}
 .btn-danger {
     background-color: #dc3545;
     color: white;

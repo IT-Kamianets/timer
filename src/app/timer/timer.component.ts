@@ -1,8 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-timer',
   standalone: true,
+  imports: [CommonModule,FormsModule],
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
