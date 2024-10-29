@@ -1,2 +1,5 @@
-<app-timer></app-timer>
-<app-stopwatch></app-stopwatch>
+<app-timer *ngIf="type === 'timer'"></app-timer>
+<app-stopwatch *ngIf="type === 'stopwatch'"></app-stopwatch>
+
+<button (click)="type = 'timer'">Timer</button>
+<button (click)="type = 'stopwatch'">Stopwatch</button>
