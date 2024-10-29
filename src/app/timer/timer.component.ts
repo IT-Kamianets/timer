@@ -82,7 +82,7 @@ export class TimerComponent implements OnInit {
   }
 
   playSound() {
-    const audio = new Audio('src/assets/alarm.mp3'); // Задайте правильний шлях до файлу
+    const audio = new Audio('assets/alarm.mp3'); // Задайте правильний шлях до файлу
     audio.play().catch((error) => {
         console.error("Error playing sound:", error);
     });

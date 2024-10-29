@@ -1,15 +1,22 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": ["jest"] // or ["mocha"], depending on your testing framework
   },
   "files": [
-    "src/main.ts"
+    "src/main.ts",
+    "src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts",  // Exclude all spec files
+    "**/*.config.ts", // Exclude config files
+    "**/stopwatch/**/*.spec.ts",
+    "**/timer/**/*.spec.ts",
+    "src/app/app.routes.ts" // Exclude app.routes.ts if not used
   ]
 }

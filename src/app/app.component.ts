@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'] // Додай стиль, якщо потрібно
 })
 export class AppComponent {
+  title = 'timer'; // Додайте цю рядок, щоб виправити помилку
   type: 'timer' | 'stopwatch' = 'timer';
 }
