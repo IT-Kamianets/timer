@@ -1,56 +1,53 @@
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f8f9fa;
-}
-
-.bg1 {
-    background-color: #f8f9fa; /* Світлий фон */
-}
-
-.bg2 {
-    background-color: #e2e3e5; /* Сірий фон */
-}
-
-.bg3 {
-    background-color: #d4edda; /* Зелений фон */
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f8f9fa;
 }
 
 .container {
-    text-align: center;
-    padding: 20px; /* Додано відступи */
+  text-align: center;
 }
 
 .timer h1 {
-    font-size: 4em;
-    margin-bottom: 20px;
-    color: #3c3cfc;
+  font-size: 4em;
+  margin-bottom: 20px;
+  color: #3c3cfc;
 }
 
 button {
-    font-size: 1.2em;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
 }
 
 .btn-primary {
-    background-color: #007bff;
-    color: white;
+  background-color: #007bff;
+  color: white;
 }
 
 .btn-warning {
-    background-color: #ffc107;
-    color: white;
+  background-color: #ffc107;
+  color: white;
 }
 
 .btn-danger {
-    background-color: #dc3545;
-    color: white;
+  background-color: #dc3545;
+  color: white;
+}
+
+.time-input {
+  width: 60px;
+  padding: 10px;
+  font-size: 1.2em;
+  text-align: center;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
