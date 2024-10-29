@@ -1,46 +1,59 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; // Додано OnInit
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-timer',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
-export class TimerComponent {
+export class TimerComponent implements OnInit {
   hours: number = 0;
   minutes: number = 0;
   seconds: number = 0;
-  time: number = 0;
-  interval: any;
   display: string = '00:00:00';
-  backgroundClass: string = 'bg1'; // Додано клас для фону
+  interval: any;
+
+  ngOnInit() {
+    this.updateDisplay();
+  }
 
   updateDisplay() {
-    const h = Math.floor(this.time / 3600000).toString().padStart(2, '0');
-    const m = Math.floor((this.time % 3600000) / 60000).toString().padStart(2, '0');
-    const s = Math.floor((this.time % 60000) / 1000).toString().padStart(2, '0');
-    this.display = `${h}:${m}:${s}`;
+    this.display = `${this.hours.toString().padStart(2, '0')}:${this.minutes
+      .toString()
+      .padStart(2, '0')}:${this.seconds.toString().padStart(2, '0')}`;
   }
 
   startTimer() {
-    this.time = (this.hours * 3600 + this.minutes * 60 + this.seconds) * 1000; // Конвертація в мілісекунди
+    this.stopTimer();
     this.interval = setInterval(() => {
-      if (this.time > 0) {
-        this.time -= 1000; // Зменшуємо на 1000 мілісекунд (1 секунда)
-        this.updateDisplay();
+      if (this.hours === 0 && this.minutes === 0 && this.seconds === 0) {
+        this.stopTimer();
+        alert("Time's up!");
       } else {
-        this.pauseTimer();
-        alert("Time's up!"); // Сповіщення, коли час вичерпано
+        this.decrementTime();
       }
     }, 1000);
   }
 
+  decrementTime() {
+    if (this.seconds > 0) {
+      this.seconds--;
+    } else if (this.minutes > 0) {
+      this.minutes--;
+      this.seconds = 59;
+    } else if (this.hours > 0) {
+      this.hours--;
+      this.minutes = 59;
+      this.seconds = 59;
+    }
+    this.updateDisplay();
+  }
+
   pauseTimer() {
     clearInterval(this.interval);
-    this.interval = null;
   }
 
   resetTimer() {
@@ -48,15 +61,11 @@ export class TimerComponent {
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
-    this.time = 0;
     this.updateDisplay();
   }
 
-  changeBackground(bg: string) {
-    this.backgroundClass = bg; // Змінюємо клас фону
-  }
-
-  ngOnInit() {
-    this.updateDisplay();
+  stopTimer() {
+    clearInterval(this.interval);
+    this.interval = null;
   }
 }
