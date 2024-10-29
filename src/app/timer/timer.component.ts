@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core'; // Додано OnInit
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit {
+  initialHours: number = 0;
+  initialMinutes: number = 0;
+  initialSeconds: number = 0;
   hours: number = 0;
   minutes: number = 0;
   seconds: number = 0;
@@ -28,6 +31,9 @@ export class TimerComponent implements OnInit {
 
   startTimer() {
     this.stopTimer();
+    this.hours = this.initialHours;
+    this.minutes = this.initialMinutes;
+    this.seconds = this.initialSeconds;
     this.interval = setInterval(() => {
       if (this.hours === 0 && this.minutes === 0 && this.seconds === 0) {
         this.stopTimer();
@@ -58,6 +64,9 @@ export class TimerComponent implements OnInit {
 
   resetTimer() {
     this.pauseTimer();
+    this.initialHours = 0;
+    this.initialMinutes = 0;
+    this.initialSeconds = 0;
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
