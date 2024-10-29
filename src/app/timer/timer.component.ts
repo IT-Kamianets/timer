@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
-export class TimerComponent {
+export class TimerComponent implements OnInit {
   hours: number = 0;
   minutes: number = 0;
   seconds: number = 0;
   display: string = '00:00:00';
   interval: any;
+
+  ngOnInit() {
+    this.updateDisplay();
+  }
 
   updateDisplay() {
     this.display = `${this.hours.toString().padStart(2, '0')}:${this.minutes
@@ -19,9 +23,9 @@ export class TimerComponent {
   }
 
   startTimer() {
-    this.stopTimer(); // Зупиняємо попередній інтервал, якщо був
+    this.stopTimer();
     this.interval = setInterval(() => {
-      if (this.seconds === 0 && this.minutes === 0 && this.hours === 0) {
+      if (this.hours === 0 && this.minutes === 0 && this.seconds === 0) {
         this.stopTimer();
         alert("Time's up!");
       } else {
