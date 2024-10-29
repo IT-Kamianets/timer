@@ -34,10 +34,13 @@ export class TimerComponent implements OnInit {
     this.hours = this.initialHours;
     this.minutes = this.initialMinutes;
     this.seconds = this.initialSeconds;
+
+    this.updateDisplay();
+
     this.interval = setInterval(() => {
       if (this.hours === 0 && this.minutes === 0 && this.seconds === 0) {
         this.stopTimer();
-        alert("Time's up!");
+        this.playSound(); // Відтворити звук при завершенні таймера
       } else {
         this.decrementTime();
       }
@@ -76,5 +79,12 @@ export class TimerComponent implements OnInit {
   stopTimer() {
     clearInterval(this.interval);
     this.interval = null;
+  }
+
+  playSound() {
+    const audio = new Audio('src/assets/alarm.mp3'); // Задайте правильний шлях до файлу
+    audio.play().catch((error) => {
+        console.error("Error playing sound:", error);
+    });
   }
 }
