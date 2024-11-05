@@ -1,5 +1,12 @@
-<app-timer *ngIf="type === 'timer'"></app-timer>
-<app-stopwatch *ngIf="type === 'stopwatch'"></app-stopwatch>
+<!-- app.component.html -->
+<div class="header">Таймер та Секундомір</div>
 
-<button (click)="type = 'timer'">Timer</button>
-<button (click)="type = 'stopwatch'">Stopwatch</button>
+<!-- Місце для таймера і секундоміра -->
+<app-timer *ngIf="showTimer"></app-timer>
+<app-stopwatch *ngIf="!showTimer"></app-stopwatch>
+
+<!-- Перемикач між таймером та секундоміром -->
+<div class="switch-container">
+    <div class="switch" [class.active]="showTimer" (click)="toggleView(true)">Timer</div>
+    <div class="switch" [class.active]="!showTimer" (click)="toggleView(false)">Stopwatch</div>
+</div>
