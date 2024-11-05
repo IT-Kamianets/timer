@@ -32,11 +32,11 @@ jobs:
 
       # Step 5: Create CNAME file
       - name: Create CNAME file
-        run: echo "timer.itkamianets.com" > ./dist/timer/browser/CNAME
+        run: echo "timer.itkamianets.com" > ./dist/timer/CNAME
 
       # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./dist/timer/browser
+          publish_dir: ./dist/timer
