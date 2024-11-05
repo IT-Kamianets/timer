@@ -1,8 +1,11 @@
-/* app.component.css */
+/* Градієнтний фон */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
+    background: linear-gradient(135deg, #f0f4f8, #dfe9f3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .header {
@@ -13,32 +16,61 @@ body {
     font-size: 1.8em;
     font-weight: bold;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
-.switch-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
+/* Стиль кругів */
+.background-circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
 }
 
-.switch {
-    padding: 5px 10px;
-    font-size: 1em;
-    border: 2px solid #4CAF50;
-    color: #4CAF50;
-    background-color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    mix-blend-mode: overlay;
+    animation: float 10s ease-in-out infinite;
 }
 
-.switch.active {
-    background-color: #4CAF50;
-    color: white;
+.circle:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 20%;
 }
 
-.switch:hover {
-    background-color: #388E3C;
-    color: white;
+.circle:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    top: 30%;
+    right: 20%;
+}
+
+.circle:nth-child(3) {
+    width: 300px;
+    height: 300px;
+    bottom: 15%;
+    left: 15%;
+}
+
+.circle:nth-child(4) {
+    width: 250px;
+    height: 250px;
+    bottom: 20%;
+    right: 25%;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }

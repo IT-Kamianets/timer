@@ -1,12 +1,10 @@
-<!-- app.component.html -->
-<div class="header">Таймер та Секундомір</div>
-
-<!-- Місце для таймера і секундоміра -->
-<app-timer *ngIf="showTimer"></app-timer>
-<app-stopwatch *ngIf="!showTimer"></app-stopwatch>
-
-<!-- Перемикач між таймером та секундоміром -->
-<div class="switch-container">
-    <div class="switch" [class.active]="showTimer" (click)="toggleView(true)">Timer</div>
-    <div class="switch" [class.active]="!showTimer" (click)="toggleView(false)">Stopwatch</div>
+<!-- Фонові круги -->
+<div class="background-circles">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
 </div>
+
+<div class="header">Таймер та Секундомір</div>
+<!-- Контент тут -->
