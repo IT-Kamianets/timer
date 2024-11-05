@@ -1,12 +1,44 @@
-<!-- app.component.html -->
-<div class="header">Таймер та Секундомір</div>
+/* app.component.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+}
 
-<!-- Місце для таймера і секундоміра -->
-<app-timer *ngIf="showTimer"></app-timer>
-<app-stopwatch *ngIf="!showTimer"></app-stopwatch>
+.header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.8em;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-<!-- Перемикач між таймером та секундоміром -->
-<div class="switch-container">
-    <div class="switch" [class.active]="showTimer" (click)="toggleView(true)">Timer</div>
-    <div class="switch" [class.active]="!showTimer" (click)="toggleView(false)">Stopwatch</div>
-</div>
+.switch-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.switch {
+    padding: 5px 10px;
+    font-size: 1em;
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.switch.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.switch:hover {
+    background-color: #388E3C;
+    color: white;
+}
