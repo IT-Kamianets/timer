@@ -1,0 +1,48 @@
+<div class="tabata-container">
+  <div *ngIf="showSettings">
+    <h3>Налаштування Tabata</h3>
+
+    <label for="tabataDuration">Тривалість роботи (сек.):</label>
+    <input 
+      type="number" 
+      id="tabataDuration" 
+      [(ngModel)]="tabataDuration" 
+      min="1" 
+      class="input-field" 
+    />
+
+    <label for="restDuration">Тривалість відпочинку (сек.):</label>
+    <input 
+      type="number" 
+      id="restDuration" 
+      [(ngModel)]="restDuration" 
+      min="1" 
+      class="input-field" 
+    />
+
+    <label for="rounds">Кількість раундів:</label>
+    <input 
+      type="number" 
+      id="rounds" 
+      [(ngModel)]="rounds" 
+      min="1" 
+      class="input-field" 
+    />
+
+    <div class="button-container">
+      <button 
+        (click)="startTabata()" 
+        class="btn btn-primary">
+        Запустити Tabata
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="!showSettings">
+    <h3>{{ currentPhase }}</h3>
+    <h1>{{ remainingTime }} сек.</h1>
+    <p>Раунд: {{ currentRound }} / {{ rounds }}</p>
+
+    <button (click)="stopTabata()" class="btn btn-danger">Зупинити</button>
+  </div>
+</div>

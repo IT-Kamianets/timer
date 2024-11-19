@@ -1,30 +1,46 @@
-body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+html, body {
+  height: 100%; /* Забезпечуємо, щоб body займав весь екран */
   margin: 0;
+  display: flex;
+  justify-content: center; /* Центруємо по горизонталі */
+  align-items: center; /* Центруємо по вертикалі */
   background-color: #f8f9fa;
 }
 
 .container {
   text-align: center;
+  max-width: 500px; /* Максимальна ширина */
+  width: 100%; /* Ширина контейнера */
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Вертикальне розташування елементів */
+  justify-content: center; /* Центрування по вертикалі */
+  align-items: center; /* Центрування по горизонталі */
+  box-sizing: border-box; /* Враховуємо padding у розміри контейнера */
 }
 
 .timer h1 {
   font-size: 4em;
   margin-bottom: 20px;
   color: #3c3cfc;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 button {
   font-size: 1.2em;
-  padding: 10px 20px;
-  margin: 5px;
+  padding: 12px 24px;
+  margin: 10px;
   cursor: pointer;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s;
+  width: 100%; /* Кнопки займають всю ширину контейнера */
+  max-width: 250px; /* Максимальна ширина для кнопок */
+  box-sizing: border-box; /* Для коректного відображення ширини */
+}
+
+button:active {
+  transform: scale(0.95);
 }
 
 .btn-primary {
@@ -32,9 +48,17 @@ button {
   color: white;
 }
 
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
 .btn-warning {
   background-color: #ffc107;
   color: white;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
 }
 
 .btn-danger {
@@ -42,12 +66,46 @@ button {
   color: white;
 }
 
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
 .time-input {
-  width: 60px;
-  padding: 10px;
+  width: 80px;
+  padding: 12px;
   font-size: 1.2em;
   text-align: center;
   margin: 5px;
   border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+  box-sizing: border-box; /* Урахування padding у ширині */
+}
+
+.time-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.error-message {
+  color: red;
+  margin-top: 15px;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #f8d7da;
+  padding: 10px;
   border-radius: 5px;
+  width: 100%; /* Ширина повідомлення на весь контейнер */
+  max-width: 500px; /* Максимальна ширина */
+  box-sizing: border-box; /* Враховуємо padding у розміри */
+  text-align: center; /* Центруємо текст */
+}
+
+/* Контейнер для кнопок паузи та старту */
+.button-container {
+  display: flex; /* Використовуємо Flexbox для вирівнювання кнопок в рядок */
+  justify-content: center; /* Центруємо кнопки по горизонталі */
+  align-items: center; /* Центруємо кнопки по вертикалі */
+  gap: 10px; /* Відстань між кнопками */
+  width: 100%;
 }

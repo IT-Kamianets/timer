@@ -18,6 +18,7 @@ export class TimerComponent implements OnInit {
   seconds: number = 0;
   display: string = '00:00:00';
   interval: any;
+  errorMessage: string = ''; // Додано для повідомлень про помилки
 
   ngOnInit() {
     this.updateDisplay();
@@ -29,7 +30,26 @@ export class TimerComponent implements OnInit {
       .padStart(2, '0')}:${this.seconds.toString().padStart(2, '0')}`;
   }
 
+  validateInputs(): boolean {
+    if (this.initialMinutes < 0 || this.initialMinutes > 59) {
+      this.errorMessage = 'Хвилини мають бути в діапазоні 0–59!';
+      return false;
+    }
+    if (this.initialSeconds < 0 || this.initialSeconds > 59) {
+      this.errorMessage = 'Секунди мають бути в діапазоні 0–59!';
+      return false;
+    }
+    if (isNaN(this.initialHours) || isNaN(this.initialMinutes) || isNaN(this.initialSeconds)) {
+      this.errorMessage = 'Всі поля мають бути заповнені числами!';
+      return false;
+    }
+    this.errorMessage = ''; // Якщо все добре, очищуємо повідомлення
+    return true;
+  }
+
   startTimer() {
+    if (!this.validateInputs()) return; // Перевіряємо ввід перед запуском
+
     this.stopTimer();
     this.hours = this.initialHours;
     this.minutes = this.initialMinutes;
@@ -73,6 +93,7 @@ export class TimerComponent implements OnInit {
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
+    this.errorMessage = ''; // Очищаємо помилку при скиданні
     this.updateDisplay();
   }
 
@@ -84,7 +105,7 @@ export class TimerComponent implements OnInit {
   playSound() {
     const audio = new Audio('assets/alarm.mp3'); // Задайте правильний шлях до файлу
     audio.play().catch((error) => {
-        console.error("Error playing sound:", error);
+      console.error('Error playing sound:', error);
     });
   }
 }

@@ -1,13 +1,20 @@
-<!-- app.component.html -->
 <div class="background"></div>
-<div class="header">Таймер та Секундомір</div>
+<div class="header">Timer App</div>
 
-<!-- Місце для таймера і секундоміра -->
-<app-timer *ngIf="showTimer"></app-timer>
-<app-stopwatch *ngIf="!showTimer"></app-stopwatch>
-
-<!-- Перемикач між таймером та секундоміром -->
 <div class="switch-container">
-    <div class="switch" [class.active]="showTimer" (click)="toggleView(true)">Timer</div>
-    <div class="switch" [class.active]="!showTimer" (click)="toggleView(false)">Stopwatch</div>
+  <button class="switch" [class.active]="showTimer" (click)="toggleView('timer')">Timer</button>
+  <button class="switch" [class.active]="showStopwatch" (click)="toggleView('stopwatch')">Stopwatch</button>
+  <button class="switch" [class.active]="isTabataVisible" (click)="toggleView('tabata')">Tabata</button>
+</div>
+
+<div class="section" *ngIf="showTimer" class="active">
+  <app-timer></app-timer>
+</div>
+
+<div class="section" *ngIf="showStopwatch" class="active">
+  <app-stopwatch></app-stopwatch>
+</div>
+
+<div class="section" *ngIf="isTabataVisible" class="active">
+  <app-tabata></app-tabata>
 </div>

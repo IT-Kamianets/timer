@@ -1,27 +1,24 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common'; // Потрібно для використання пайпів, таких як 'number'
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';  // Додаємо FormsModule для ngModel
 
 import { AppComponent } from './app.component';
-import { TimerComponent } from './timer/timer.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { StopwatchComponent } from './stopwatch/stopwatch.component';
+import { TimerComponent } from './timer/timer.component';  // Standalone компонент
+import { StopwatchComponent } from './stopwatch/stopwatch.component';  // Standalone компонент
+import { TabataComponent } from './tabata/tabata.component';  // Не standalone
 
 @NgModule({
   declarations: [
-    AppComponent // Реєстрація вашого компонента
+    AppComponent,
+    TabataComponent   // Додаємо лише ті компоненти, які не standalone
   ],
   imports: [
-    TimerComponent,
-    StopwatchComponent,
     BrowserModule,
     CommonModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    }) // Імпорт CommonModule для доступу до пайпів
+    FormsModule,      // Додаємо FormsModule для ngModel
+    TimerComponent,   // Імпортуємо standalone компоненти
+    StopwatchComponent // Імпортуємо standalone компоненти
   ],
   providers: [],
   bootstrap: [AppComponent]

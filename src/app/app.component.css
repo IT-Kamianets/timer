@@ -1,19 +1,16 @@
-/* General styling */
+/* Загальний стиль */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background: #f0f0f0;
-}
-
-/* Background Animation */
-@keyframes backgroundAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.background {
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center; /* Центруємо по горизонталі */
+    align-items: center; /* Центруємо по вертикалі */
+    height: 100vh; /* Забезпечуємо, щоб body займав всю висоту екрану */
+  }
+  
+  .background {
     position: fixed;
     top: 0;
     left: 0;
@@ -23,38 +20,83 @@ body {
     background-size: 200% 200%;
     animation: backgroundAnimation 15s ease infinite;
     z-index: -1;
-}
-
-/* Header */
-.header {
-    font-size: 24px;
+  }
+  
+  @keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Заголовок */
+  .header {
+    font-size: 2.5em;
     font-weight: bold;
     text-align: center;
-    color: white;
+    color: #fff;
     padding: 20px;
-    background-color: #4CAF50;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    border-radius: 8px;
-}
-
-/* Switch Container */
-.switch-container {
+    margin-bottom: 30px;
+    background-color: #007bff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px; /* Задаємо максимальну ширину */
+    margin: 0 auto 30px auto; /* Центруємо */
+  }
+  
+  /* Кнопки перемикання */
+  .switch-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.switch {
-    padding: 10px 20px;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .switch {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
-    border: 2px solid #4CAF50;
+    border: 2px solid transparent;
     border-radius: 5px;
-    color: #4CAF50;
-}
-
-.switch.active {
-    background-color: #4CAF50;
-    color: white;
-}
+    color: #fff;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .switch:hover {
+    transform: scale(1.1);
+  }
+  
+  .switch.active {
+    background-color: #007bff;
+    border-color: #0056b3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .switch:not(.active) {
+    background-color: #6c757d;
+  }
+  
+  .section {
+    display: none;
+  }
+  
+  .section.active {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Задаємо максимальну ширину */
+    width: 100%;
+  }
+  
+  .section h1 {
+    font-size: 2.5em;
+    color: #333;
+  }
+  

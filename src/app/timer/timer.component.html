@@ -2,10 +2,32 @@
   <div class="timer">
     <h1 id="display">{{ display }}</h1>
     <div>
-      <input type="number" [(ngModel)]="initialHours" placeholder="HH" min="0" class="time-input" />
-      <input type="number" [(ngModel)]="initialMinutes" placeholder="MM" min="0" max="59" class="time-input" />
-      <input type="number" [(ngModel)]="initialSeconds" placeholder="SS" min="0" max="59" class="time-input" />
+      <input
+        type="number"
+        [(ngModel)]="initialHours"
+        placeholder="HH"
+        min="0"
+        class="time-input"
+      />
+      <input
+        type="number"
+        [(ngModel)]="initialMinutes"
+        placeholder="MM"
+        min="0"
+        max="59"
+        class="time-input"
+      />
+      <input
+        type="number"
+        [(ngModel)]="initialSeconds"
+        placeholder="SS"
+        min="0"
+        max="59"
+        class="time-input"
+      />
     </div>
+    <!-- Відображення помилки -->
+    <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
     <div class="buttons">
       <button class="btn btn-primary" (click)="startTimer()">Start</button>
       <button class="btn btn-warning" (click)="pauseTimer()">Pause</button>
